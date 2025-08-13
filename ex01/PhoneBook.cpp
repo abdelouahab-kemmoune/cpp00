@@ -12,66 +12,46 @@
 
 #include "PhoneBook.hpp"
 
-class Contact{
-private:
-    string FirstName;
-    string LastName;
-    string NickName;
-    string PhoneNumber;
-    string DarkestSecret;
-    int Count = 0;
-public:
-    // encapsulation
-    void setCount(int count) {
-        Count = count;
-    }
-    int getCount() {
-        return Count;
+    PhoneBook::PhoneBook() : Count(0) {
     }
 
-    void setFirstName(string firstName) {
+    void Contact::setFirstName(string firstName) {
         FirstName = firstName;
     }
-    string getFirstName() {
+    string Contact::getFirstName() {
         return FirstName;
     }
 
-    void setLastName(string lastName) {
+    void Contact::setLastName(string lastName) {
         LastName = lastName;
     }
-    string getLastName() {
+    string Contact::getLastName() {
         return LastName;
     }
 
-    void setNickName(string nickName) {
+    void Contact::setNickName(string nickName) {
         NickName = nickName;
     }
-    string getNickName() {
+    string Contact::getNickName() {
         return NickName;
     }
 
-    void setPhoneNumber(string phoneNumber) {
+    void Contact::setPhoneNumber(string phoneNumber) {
         PhoneNumber = phoneNumber;
     }
-    string getPhoneNumber() {
+    string Contact::getPhoneNumber() {
         return PhoneNumber;
     }
 
-    void setDarkestSecret(string darkestSecret) {
+    void Contact::setDarkestSecret(string darkestSecret) {
         DarkestSecret = darkestSecret;
     }
-    string getDarkestSecret() {
+    string Contact::getDarkestSecret() {
         return DarkestSecret;
     }
-};
 
-class PhoneBook {
-private:
-    Contact Contacts[8];
-    int Count = 0;
 //ADD
-public:
-    void Add() {
+    void PhoneBook::Add() {
         Contact c;
         string input;
 
@@ -120,8 +100,7 @@ public:
         Count++;
     }
 //SEARCH
-public:
-    void Search() {
+    void PhoneBook::Search() {
         int total = (Count < 8) ? Count : 8;
         std::cout << std::setw(10) << std::right << "Index" << "|"
                     << std::setw(10) << std::right << "First name" << "|"
@@ -168,32 +147,3 @@ public:
             }
         }
     }
-};
-
-int main(int argc, char **argv)
-{
-    PhoneBook phoneBook;
-    std::string command;
-
-    while (true)
-    {
-        std::cout << "Enter the command(ADD or SEARCH or EXIT): ";
-        if (!std::getline(std::cin, command))
-        {
-            std::cout << "\nExiting program.\n";
-            break;
-        }
-        
-        if (command == "ADD") {
-            phoneBook.Add();
-        }
-        else if (command == "SEARCH")
-        {
-            phoneBook.Search();
-        }
-        else if (command == "EXIT")
-            break;
-        else
-            std::cout << "unknown command" << std::endl;
-    }
-}
