@@ -10,12 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "PhoneBook.hpp"
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <limits>
-using std::string;
+#include "PhoneBook.hpp"
 
 class Contact{
 private:
@@ -150,11 +145,14 @@ public:
                 std::cout << std::setw(10) << std::right << Contacts[i].getNickName() << "|" << std::endl;
         }
 
-
         int index = 0;
         std::cout << "Enter the index: ";
         std::cin >> index;
-        if (std::cin.fail())
+        if (std::cin.fail()) {
+            std::cout << "Invalid input, try again!" << std::endl;
+            std::cin.clear(); // clear error flags
+            std::cin.ignore(1000, '\n'); // discard the invalid input
+        }
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         std::cout << std::endl;
@@ -180,8 +178,12 @@ int main(int argc, char **argv)
     while (true)
     {
         std::cout << "Enter the command(ADD or SEARCH or EXIT): ";
-        std::getline(std::cin, command); // PROTECT END OF FILE
-
+        if (!std::getline(std::cin, command))
+        {
+            std::cout << "\nExiting program.\n";
+            break;
+        }
+        
         if (command == "ADD") {
             phoneBook.Add();
         }
