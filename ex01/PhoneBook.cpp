@@ -15,45 +15,10 @@
     PhoneBook::PhoneBook() : Count(0) {
     }
 
-    void Contact::setFirstName(string firstName) {
-        FirstName = firstName;
-    }
-    string Contact::getFirstName() {
-        return FirstName;
-    }
-
-    void Contact::setLastName(string lastName) {
-        LastName = lastName;
-    }
-    string Contact::getLastName() {
-        return LastName;
-    }
-
-    void Contact::setNickName(string nickName) {
-        NickName = nickName;
-    }
-    string Contact::getNickName() {
-        return NickName;
-    }
-
-    void Contact::setPhoneNumber(string phoneNumber) {
-        PhoneNumber = phoneNumber;
-    }
-    string Contact::getPhoneNumber() {
-        return PhoneNumber;
-    }
-
-    void Contact::setDarkestSecret(string darkestSecret) {
-        DarkestSecret = darkestSecret;
-    }
-    string Contact::getDarkestSecret() {
-        return DarkestSecret;
-    }
-
 //ADD
     void PhoneBook::Add() {
         Contact c;
-        string input;
+        std::string input;
 
         std::cout << "First name: ";
         std::getline(std::cin, input);
@@ -86,10 +51,14 @@
             std::cout << "Can't be empty. Enter again: ";
             std::getline(std::cin, input);
         }
+        while (input.find_first_not_of("0123456789") != std::string::npos) {
+            std::cout << "Invalid phone number. Enter again: ";
+            std::getline(std::cin, input);
+        }
         c.setPhoneNumber(input);
 
-        std::cout << "Darkest secret: ";
-        std::getline(std::cin,input);
+    std::cout << "Darkest secret: ";
+    std::getline(std::cin,input);
         while (input.empty()) {
             std::cout << "Can't be empty. Enter again: ";
             std::getline(std::cin, input);

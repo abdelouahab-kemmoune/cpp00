@@ -2,7 +2,7 @@ NAME = PhoneBook
 CC = c++
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = PhoneBook.cpp main.cpp
+SRCS = PhoneBook.cpp main.cpp Contact.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

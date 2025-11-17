@@ -10,33 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Contact.hpp"
 
-#include <iostream>
-#include <string>
-
-std::string Upper(std::string str)
-{
-    for (char &c : str)
-    {
-        if (c >= 'a' && c <= 'z')
-            c -= 32;
+void Contact::setFirstName(std::string firstName) {
+        FirstName = firstName;
     }
-    return (str);
-}
-
-int main(int argc, char **argv)
-{
-    if (argc == 1)
-    {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-        return (0);
+std::string Contact::getFirstName() {
+        return FirstName;
     }
-    int i = 1;
 
-    while (argv[i])
-    {
-        std::cout << Upper(argv[i]);
-        i++;
+void Contact::setLastName(std::string lastName) {
+        LastName = lastName;
     }
-    std::cout << std::endl;
-}
+std::string Contact::getLastName() {
+        return LastName;
+    }
+
+void Contact::setNickName(std::string nickName) {
+        NickName = nickName;
+    }
+std::string Contact::getNickName() {
+        return NickName;
+    }
+
+void Contact::setPhoneNumber(std::string phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
+std::string Contact::getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+void Contact::setDarkestSecret(std::string darkestSecret) {
+        DarkestSecret = darkestSecret;
+    }
+std::string Contact::getDarkestSecret() {
+        return DarkestSecret;
+    }

@@ -10,24 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+# ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
 #include <string>
 #include <iomanip>
 #include <limits>
-#include "Contact.hpp"
 
-class PhoneBook {
+class Contact {
 private:
-    Contact Contacts[8];
-    int Count;
+    std::string FirstName;
+    std::string LastName;
+    std::string NickName;
+    std::string PhoneNumber;
+    std::string DarkestSecret;
 
 public:
-    PhoneBook();
-    void Add();
-    void Search();
+    void setFirstName(std::string firstName);
+    std::string getFirstName();
+    void setLastName(std::string lastName);
+    std::string getLastName();
+    void setNickName(std::string nickName);
+    std::string getNickName();
+    void setPhoneNumber(std::string phoneNumber);
+    std::string getPhoneNumber();
+    void setDarkestSecret(std::string darkestSecret);
+    std::string getDarkestSecret();
 };
 
 # endif
